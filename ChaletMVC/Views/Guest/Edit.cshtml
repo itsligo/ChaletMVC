@@ -1,0 +1,55 @@
+﻿@model ChaletMVC.Models.Guest
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="container-fluid">
+    <h2>Edit</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Guest</legend>
+
+            @Html.HiddenFor(model => model.GuestId)
+            
+            <div class="row-fluid">
+                <div class="span2">
+                    @Html.LabelFor(model => model.GuestName)
+                    @Html.EditorFor(model => model.GuestName)
+                    @Html.ValidationMessageFor(model => model.GuestName)
+                </div>
+                <div class="span2 offset2">
+                    
+                    @Html.LabelFor(model => model.FromDate)
+                    @Html.EditorFor(model => model.FromDate)
+                    @Html.ValidationMessageFor(model => model.FromDate)
+                    
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span2">
+                    @Html.LabelFor(model => model.ChaletId, "Chalet")
+                    @Html.DropDownList("ChaletId", String.Empty)
+                    @Html.ValidationMessageFor(model => model.ChaletId)
+                </div>
+                <div class="span2 offset2">
+                    @Html.LabelFor(model => model.ToDate)
+                    @Html.EditorFor(model => model.ToDate)
+                    @Html.ValidationMessageFor(model => model.ToDate)
+                </div>
+            </div>
+            <p>
+                <input type="submit" value="Save" class="btn btn-danger" />
+                @Html.ActionLink("Back to List", "Index", "Home",null, new {@class = "btn btn-info"})
+            </p>
+        </fieldset>
+    }
+    
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

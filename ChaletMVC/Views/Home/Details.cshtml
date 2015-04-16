@@ -1,0 +1,29 @@
+﻿@model ChaletMVC.Models.Chalet
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Chalet</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ChaletName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ChaletName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ChaletManager)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ChaletManager)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ChaletId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

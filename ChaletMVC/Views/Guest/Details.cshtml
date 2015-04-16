@@ -1,0 +1,43 @@
+﻿@model ChaletMVC.Models.Guest
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Guest</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GuestName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GuestName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FromDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FromDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ToDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ToDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Chalet.ChaletName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Chalet.ChaletName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.GuestId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

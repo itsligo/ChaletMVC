@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ChaletMVC.Models.Chalet>
+
+@{
+    ViewBag.Title = "Chalet MVC App";
+}
+
+<div class="container-fluid">
+    <h2>Chalets</h2>
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new {@class = "btn btn-primary"})
+    </p>
+    <table class="table table-striped">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ChaletName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChaletManager)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(jk => item.ChaletName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ChaletManager)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit Me", "Edit", new {id = item.ChaletId}) |
+                    @Html.ActionLink("Details Of", "Details", new {id = item.ChaletId}) |
+                    @Html.ActionLink("Delete This", "Delete", new {id = item.ChaletId})
+                </td>
+            </tr>
+            foreach (ChaletMVC.Models.Guest gst in item.Guests.OrderBy(g=>g.GuestName))
+            {
+                <tr>
+                    <td></td>
+                    <td>
+                        @*@Html.DisplayFor(g => gst.GuestName)*@
+                        @Html.ActionLink(gst.GuestName,"Edit","Guest",new{id=gst.GuestId},
+                                new{@class="btn btn-info btn-mini"})
+                    </td>
+                    <td>
+                        @Html.DisplayFor(g=>gst.FromDate)
+                    </td>
+                </tr>    
+            }   @* iterate over Guests collection *@
+        }
+
+    </table>
+</div>

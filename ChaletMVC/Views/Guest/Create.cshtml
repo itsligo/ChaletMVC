@@ -1,0 +1,59 @@
+﻿@model ChaletMVC.Models.Guest
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Guest</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GuestName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GuestName)
+            @Html.ValidationMessageFor(model => model.GuestName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FromDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FromDate)
+            @Html.ValidationMessageFor(model => model.FromDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ToDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ToDate)
+            @Html.ValidationMessageFor(model => model.ToDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ChaletId, "Chalet")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ChaletId", String.Empty)
+            @Html.ValidationMessageFor(model => model.ChaletId)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

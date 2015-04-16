@@ -1,0 +1,40 @@
+﻿@model ChaletMVC.Models.Chalet
+
+@{
+    ViewBag.Title = "Edit";
+}
+<div class="container-fluid">
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Chalet</legend>
+
+        @Html.HiddenFor(model => model.ChaletId)
+
+        <div class="row-fluid">
+            <div class="span3">
+                @Html.LabelFor(model => model.ChaletName)
+                @Html.EditorFor(model => model.ChaletName)
+                @Html.ValidationMessageFor(model => model.ChaletName)
+            </div>
+        
+            <div class="span3 offset1">
+                @Html.LabelFor(model => model.ChaletManager)
+                @Html.EditorFor(model => model.ChaletManager)
+                @Html.ValidationMessageFor(model => model.ChaletManager)
+            </div>
+        </div>
+
+        <p>
+            <input type="submit" value="Save" class="btn btn-primary" />
+            @Html.ActionLink("Back to Chalets List", "Index", null,null,new{@class="btn btn-mini btn-info"})
+        </p>
+    </fieldset>
+}
+    </div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
